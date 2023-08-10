@@ -10,6 +10,12 @@ from mmcv.runner import load_checkpoint
 from mmcls.datasets.pipelines import Compose
 from mmcls.models import build_classifier
 
+def convert2coarse_label(i:int):
+    """The first four are negative"""
+    if i <= 3:
+        return i
+    return i - 3
+
 
 def init_model(config, checkpoint=None, device='cuda:0', options=None):
     """Initialize a classifier from config file.
@@ -81,28 +87,27 @@ def inference_model(model, img):
         # scatter to specified GPU
         data = scatter(data, [device])[0]
 
+    # # forward the model
+    # with torch.no_grad():
+    #     scores = model(return_loss=False, **data)
+    #     print(scores)
+    #     pred_score = np.max(scores, axis=1)[0]
+    #     pred_label = np.argmax(scores, axis=1)[0]
+    #     print(f"predict label {np.argmax(scores, axis=1)} add convert {pred_label}" )
+    #     result = {'pred_label': pred_label, 'pred_score': float(pred_score)}
+    #     result['pred_class'] = model.CLASSES[result['pred_label']]
+    # print(result)
+    # return result
+
     # forward the model
     with torch.no_grad():
         scores = model(return_loss=False, **data)
+        results = []
         pred_score = np.max(scores, axis=1)[0]
         pred_label = np.argmax(scores, axis=1)[0]
-        result = {'pred_label': pred_label, 'pred_score': float(pred_score)}
-    result['pred_class'] = model.CLASSES[result['pred_label']]
-    return result
-
-
-def show_result_pyplot(model, img, result, fig_size=(15, 10)):
-    """Visualize the classification results on the image.
-
-    Args:
-        model (nn.Module): The loaded classifier.
-        img (str or np.ndarray): Image filename or loaded image.
-        result (list): The classification result.
-        fig_size (tuple): Figure size of the pyplot figure.
-    """
-    if hasattr(model, 'module'):
-        model = model.module
-    img = model.show_result(img, result, show=False)
-    plt.figure(figsize=fig_size)
-    plt.imshow(mmcv.bgr2rgb(img))
-    plt.show()
+        for index, score in enumerate(scores[0]):
+            result = {'class': model.CLASSES[index], 'score': float(score/pred_score)}
+            results.append(result)
+        # print(results)
+        results.append({'pred_class': model.CLASSES[pred_label], 'pred_score': float(pred_score)})
+    return results
