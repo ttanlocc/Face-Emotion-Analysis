@@ -11,7 +11,7 @@ APViT is a simple and efficient Transformer-based method for facial expression r
 
 |   Model            | RAF-DB | Config   | Download |
 |--------------------|--------|----------|----------|
-|** APVit (added data)** | 90.87% | [config](configs/apvit/RAF.py) | [model](https://drive.google.com/file/d/1KuCvRdpyre-lVsVdfEbx7H32ouqL6SMx)  |
+|** APVit (added data) ** | 90.87% | [config](configs/apvit/RAF.py) | [model](https://drive.google.com/file/d/1KuCvRdpyre-lVsVdfEbx7H32ouqL6SMx)  |
 
 Beside you can download original checkponit here
 |[config](configs/apvit/RAF.py) | [model](https://pan.baidu.com/s/1nuSigUoyV2qEB6WMtzUWFQ?pwd=axfc)  |
