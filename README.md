@@ -1,4 +1,4 @@
-APViT: Vision Transformer With Attentive Pooling for Robust Facial Expression Recognition
+APViT: Vision Transformer With Attentive Pooling for Robust Facial Expression Analysis
 ==
 
 <div align="center">
