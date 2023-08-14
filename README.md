@@ -7,6 +7,13 @@ APViT: Vision Transformer With Attentive Pooling for Robust Facial Expression Re
 
 APViT is a simple and efficient Transformer-based method for facial expression recognition (FER). It builds on the [TransFER](https://openaccess.thecvf.com/content/ICCV2021/html/Xue_TransFER_Learning_Relation-Aware_Facial_Expression_Representations_With_Transformers_ICCV_2021_paper.html), but introduces two attentive pooling (AP) modules that do not require any learnable parameters. These modules help the model focus on the most expressive features and ignore the less relevant ones. You can read more about our method in our [paper](https://arxiv.org/abs/2212.05463).
 
+## Pretrained checkpoints
+
+| Model | RAF-DB | Config   | Download |
+|-------|--------|----------|----------|
+| APViT |  90.87 | [config](configs/apvit/RAF.py) | [model](https://drive.google.com/file/d/1KuCvRdpyre-lVsVdfEbx7H32ouqL6SMx)  |
+
+
 ## Update
 
 - **2023-05-16**: We add a Colab demo for inference, test and training on RAF-DB: [![Open In Colab](https://colab.research.google.com/drive/1XdpQCPWIvdmi8feyWAgIkSagp9KrqHUT?usp=sharing)
@@ -70,12 +77,6 @@ python -m torch.distributed.launch --nproc_per_node=2 \
     weights/APViT_RAF-3eeecf7d.pth \   # your checkpoint
     --launcher pytorch
 ```
-
-## Pretrained checkpoints
-
-| Model | RAF-DB | Config   | Download |
-|-------|--------|----------|----------|
-| APViT |  90.87 | [config](configs/apvit/RAF.py) | [model](https://drive.google.com/file/d/1KuCvRdpyre-lVsVdfEbx7H32ouqL6SMx)  |
 
 
 ## License
