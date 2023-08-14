@@ -20,7 +20,7 @@ APViT is a simple and efficient Transformer-based method for facial expression r
 
 ## Update
 
-- **2023-05-16**: We add a Colab demo for inference, test and training on RAF-DB: [[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1XdpQCPWIvdmi8feyWAgIkSagp9KrqHUT?usp=sharing)
+- **2023-05-16**: We add a Colab demo for inference, test and training on RAF-DB: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1XdpQCPWIvdmi8feyWAgIkSagp9KrqHUT?usp=sharing)
 
 
 ## Installation
