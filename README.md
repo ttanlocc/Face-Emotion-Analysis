@@ -9,7 +9,7 @@ APViT is a simple and efficient Transformer-based method for facial expression r
 
 ## Update
 
-- **2023-05-16**: We add a Colab demo for inference, test and training on RAF-DB: [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/drive/1dwR-30Gt6Twbqsj5FXqaVzXlgtp6Z7Ll?usp=sharing)
+- **2023-05-16**: We add a Colab demo for inference, test and training on RAF-DB: [![Open In Colab](https://colab.research.google.com/drive/1XdpQCPWIvdmi8feyWAgIkSagp9KrqHUT?usp=sharing)
 
 
 ## Installation
@@ -75,7 +75,7 @@ python -m torch.distributed.launch --nproc_per_node=2 \
 
 | Model | RAF-DB | Config   | Download |
 |-------|--------|----------|----------|
-| APViT | 
+| APViT |  90.87 | [config](configs/apvit/RAF.py) | [model](https://drive.google.com/file/d/1KuCvRdpyre-lVsVdfEbx7H32ouqL6SMx)  |
 
 
 ## License
