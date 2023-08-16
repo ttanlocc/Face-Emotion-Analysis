@@ -111,3 +111,18 @@ def inference_model(model, img):
         # print(results)
         results.append({'pred_class': model.CLASSES[pred_label], 'pred_score': float(pred_score)})
     return results
+
+def show_result_pyplot(model, img, result, fig_size=(15, 10)):
+    """Visualize the classification results on the image.
+    Args:
+        model (nn.Module): The loaded classifier.
+        img (str or np.ndarray): Image filename or loaded image.
+        result (list): The classification result.
+        fig_size (tuple): Figure size of the pyplot figure.
+    """
+    if hasattr(model, 'module'):
+        model = model.module
+    img = model.show_result(img, result, show=False)
+    plt.figure(figsize=fig_size)
+    plt.imshow(mmcv.bgr2rgb(img))
+    plt.show()
