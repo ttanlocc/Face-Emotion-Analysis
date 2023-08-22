@@ -78,7 +78,7 @@ class BaseClassifier(nn.Module, metaclass=ABCMeta):
             # raise NotImplementedError('aug_test has not been implemented')
 
     @auto_fp16(apply_to=('img', ))
-    def forward(self, img, return_loss=True, **kwargs):
+    def forward(self, img, **kwargs):
         """
         Calls either forward_train or forward_test depending on whether
         return_loss=True. Note this setting will change the expected inputs.
@@ -87,6 +87,7 @@ class BaseClassifier(nn.Module, metaclass=ABCMeta):
         should be double nested (i.e.  List[Tensor], List[List[dict]]), with
         the outer list indicating test time augmentations.
         """
+        return_loss=False
         if return_loss:
             return self.forward_train(img, **kwargs)
         else:
